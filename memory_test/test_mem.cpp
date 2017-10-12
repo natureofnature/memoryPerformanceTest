@@ -43,7 +43,7 @@ int main(){
         //printf("block 3  is %ld\n",diff);
         std::cout<< "Write speed is "<<(float) num_array*4/(1024*1024*diff/1000000)<<" MB/s"<<std::endl;
 
-	float tmp;
+	double tmp;
 	gettimeofday(&start,NULL);
         for(int i=0;i<num_array;i++){
                 tmp += f_array [i];
