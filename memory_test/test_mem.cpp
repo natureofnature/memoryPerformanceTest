@@ -19,8 +19,8 @@ int main(){
 	
 	gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
-        printf("block 1  is %ld\n",diff);
-	std::cout<< "Have created array with size :"<<num_array*4/1024/1024<<" MB"<<std::endl;	
+       // printf("block 1  is %ld\n",diff);
+	//std::cout<< "Have created array with size :"<<num_array*4/1024/1024<<" MB"<<std::endl;	
 
 	float* f_array_2 =  (float*)malloc(sizeof(float)*num_array);
 	gettimeofday(&start,NULL);
@@ -29,7 +29,7 @@ int main(){
 	}
 	gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
-        printf("block 2  is %ld\n",diff);
+        //printf("block 2  is %ld\n",diff);
 	std::cout<< "Copy speed is "<<(float) num_array*4/(1024*1024*diff/1000000)<<" MB/s"<<std::endl;
 
 
@@ -40,7 +40,7 @@ int main(){
 	}
 	gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
-        printf("block 3  is %ld\n",diff);
+        //printf("block 3  is %ld\n",diff);
         std::cout<< "Write speed is "<<(float) num_array*4/(1024*1024*diff/1000000)<<" MB/s"<<std::endl;
 
 	float tmp;
@@ -50,7 +50,7 @@ int main(){
         }
         gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
-        printf("block 4  is %ld\n",diff);
+        //printf("block 4  is %ld\n",diff);
         std::cout<< "Read speed is "<<(float) num_array*4/(1024*1024*diff/1000000)<<" MB/s"<<std::endl;
 
 
