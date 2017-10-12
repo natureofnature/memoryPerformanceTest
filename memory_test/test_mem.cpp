@@ -4,6 +4,7 @@
 #include<sys/time.h>
 #include<unistd.h>
 #include <math.h>
+#include <cstring>
 using namespace std;
 int main(){
 	int num_array = 2*40960000;
@@ -25,9 +26,7 @@ int main(){
 
 	float* f_array_2 =  (float*)malloc(sizeof(float)*num_array);
 	gettimeofday(&start,NULL);
-	for(int i=0;i<num_array;i++){
-		f_array_2[i] = f_array[i];
-	}
+	memcpy(f_array_2,f_array,sizeof(float)*num_array);
 	gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
         //printf("block 2  is %ld\n",diff);
