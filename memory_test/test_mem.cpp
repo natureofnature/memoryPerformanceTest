@@ -16,6 +16,7 @@ int main(){
 	struct  timeval start;
         struct  timeval end;
         unsigned  long diff;
+        unsigned  long pos_diff; //reference for random write
         gettimeofday(&start,NULL);
 
 	float* f_array = (float*)malloc(sizeof(float)*num_array);
@@ -42,6 +43,17 @@ int main(){
 	std::cout<< "Copy speed is "<<(float) num_array*4/(1024*1024*diff/1000000)<<" MB/s"<<std::endl;
 
 
+	int r_position;
+	gettimeofday(&start,NULL);
+	for(int i=0;i<num_array;i++){
+		r_position = position_array[i];
+	}
+	gettimeofday(&end,NULL);
+        pos_diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
+
+
+
+
 	gettimeofday(&start,NULL);
 	for(int i=0;i<num_array;i++){
 		f_array [position_array[i]] = i;
@@ -49,7 +61,7 @@ int main(){
 	gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
         //printf("block 3  is %ld\n",diff);
-        std::cout<< "Random Write speed is "<<(float) num_array*4/(1024*1024*diff/1000000)<<" MB/s"<<std::endl;
+        std::cout<< "Random Write speed is "<<(float) num_array*4/(1024*1024*(diff-pos_diff)/1000000)<<" MB/s"<<std::endl;
 
 	gettimeofday(&start,NULL);
 	for(int i=0;i<num_array;i++){
