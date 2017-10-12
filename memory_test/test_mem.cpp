@@ -8,6 +8,11 @@
 #include <time.h>
 using namespace std;
 int main(){
+
+/*
+	initialisation
+*/
+
 	int num_array = 2*40960000;
 	int* position_array = (int*)malloc(sizeof(int)*num_array);
 
@@ -35,12 +40,27 @@ int main(){
 	//std::cout<< "Have created array with size :"<<num_array*4/1024/1024<<" MB"<<std::endl;	
 
 	float* f_array_2 =  (float*)malloc(sizeof(float)*num_array);
+
+
+
+
+
+/*
+	memory copy	
+*/
+
+
+
+
 	gettimeofday(&start,NULL);
 	memcpy(f_array_2,f_array,sizeof(float)*num_array);
 	gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
         //printf("block 2  is %ld\n",diff);
 	std::cout<< "Copy speed is "<<(float) num_array*4/(1024*1024*diff/1000000)<<" MB/s"<<std::endl;
+
+/* 	memory read   */
+
 
 
 	int r_position;
@@ -52,25 +72,31 @@ int main(){
         pos_diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
 
 
-
+/*	random memory write    */
 
 	gettimeofday(&start,NULL);
 	for(int i=0;i<num_array;i++){
-		f_array [position_array[i]] = i;
+		f_array [position_array[i]] = (float)i;
 	}
 	gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
         //printf("block 3  is %ld\n",diff);
         std::cout<< "Random Write speed is "<<(float) num_array*4/(1024*1024*(diff-pos_diff)/1000000)<<" MB/s"<<std::endl;
 
+
+
+/*	sequential  memory write    */
+
 	gettimeofday(&start,NULL);
 	for(int i=0;i<num_array;i++){
-		f_array [i] = i;
+		f_array [i] = (float)i;
 	}
 	gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
         //printf("block 3  is %ld\n",diff);
         std::cout<< "Write speed is "<<(float) num_array*4/(1024*1024*diff/1000000)<<" MB/s"<<std::endl;
+
+/*	sequential  memory read    */
 
 	float tmp;
 	gettimeofday(&start,NULL);
@@ -85,7 +111,7 @@ int main(){
 
 
 	int index = rand()%num_array;
-	std::cout<<f_array[index]<<" "<<f_array_2[index]<<std::endl;
+	std::cout<<index<<" --> "<<f_array[index]<<"vs "<<f_array_2[index]<<std::endl;
 	std::cout<<tmp<<std::endl;
 
 	free(f_array);
