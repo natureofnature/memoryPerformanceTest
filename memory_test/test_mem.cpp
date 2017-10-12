@@ -34,6 +34,16 @@ int main(){
 
 
 
+	gettimeofday(&start,NULL);
+	for(int i=0;i<num_array;i++){
+		f_array [i] = i;
+	}
+	gettimeofday(&end,NULL);
+        diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
+        printf("block 3  is %ld\n",diff);
+        std::cout<< "Write speed is "<<(float) num_array*4/(1024*1024*diff/1000000)<<" MB/s"<<std::endl;
+
+
 	free(f_array);
 	free(f_array_2);
 
