@@ -8,6 +8,7 @@
 using namespace std;
 int main(){
 	int num_array = 2*40960000;
+	int* position_array = (int*)malloc(sizeof(int)*num_array);
 	
 	struct  timeval start;
         struct  timeval end;
@@ -17,6 +18,7 @@ int main(){
 	float* f_array = (float*)malloc(sizeof(float)*num_array);
 	for(int i=0;i<num_array;i++){
 		f_array[i] =(float)(rand()%100)/(1+rand()%1000);
+		position_array[i] = rand()%num_array;
 	}
 	
 	gettimeofday(&end,NULL);
@@ -36,7 +38,7 @@ int main(){
 
 	gettimeofday(&start,NULL);
 	for(int i=0;i<num_array;i++){
-		f_array [i] = i;
+		f_array [position_array[i]] = i;
 	}
 	gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
@@ -61,5 +63,5 @@ int main(){
 
 	free(f_array);
 	free(f_array_2);
-
+	free(position_array);
 }
