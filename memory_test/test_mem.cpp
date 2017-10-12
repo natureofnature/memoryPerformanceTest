@@ -5,10 +5,13 @@
 #include<unistd.h>
 #include <math.h>
 #include <cstring>
+#include <time.h>
 using namespace std;
 int main(){
 	int num_array = 2*40960000;
 	int* position_array = (int*)malloc(sizeof(int)*num_array);
+
+	srand (time(NULL));
 	
 	struct  timeval start;
         struct  timeval end;
@@ -20,7 +23,11 @@ int main(){
 		f_array[i] =(float)(rand()%100)/(1+rand()%1000);
 		position_array[i] = rand()%num_array;
 	}
-	
+	std::cout<<"Generate seed like:\n";
+	for(int i=0;i<10;i++){
+		std::cout<<position_array[i]<<" ";
+	}
+	std::cout<<std::endl;	
 	gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
        // printf("block 1  is %ld\n",diff);
