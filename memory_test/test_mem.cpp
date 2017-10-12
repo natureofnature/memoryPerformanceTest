@@ -46,8 +46,7 @@ int main(){
 	double tmp;
 	gettimeofday(&start,NULL);
         for(int i=0;i<num_array;i++){
-		int in = rand()%(i+1);
-                tmp+=  f_array [in];
+                tmp+= f_array [i];
         }
         gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
