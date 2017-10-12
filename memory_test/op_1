@@ -1,0 +1,1 @@
+ -ffp-contract=fast -fhandle-exceptions      -fira-algorithm=CB -fira-region=mixed -fpack-struct=n    -fsched-stalled-insns-dep=n -fsched-stalled-insns=n  -fsimd-cost-model=unlimited -fstack-reuse=all -ftree-parallelize-loops=0x1 -fvect-cost-model=unlimited
