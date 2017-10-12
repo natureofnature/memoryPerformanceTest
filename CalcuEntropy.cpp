@@ -184,16 +184,12 @@ int main(int arg, char** argv){
 			ss1.flush();
 	//	counter[i] = counter[i]%3+ portion1[i]/3;
 		}
-	}
-	for(int i=0;i<gap;i++){
 		if(ous_first_counter.is_open()){
 		//	ous_first_counter<<portion1[i]<<endl;
 			ss2 << portion1[i]<<endl;
 			ss1.flush();
 			//portion1[i] = log2(portion1[i]);
 		}
-	}
-	for(int i=0;i<gap;i++){
 		if(ous_second_counter.is_open()){
 		//	ous_second_counter<<portion2[i]<<endl;
 			ss3 << portion2[i]<<endl;
