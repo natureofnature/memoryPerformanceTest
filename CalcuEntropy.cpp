@@ -220,10 +220,10 @@ int main(int arg, char** argv){
 	
 	
 
-	delete counter;
-	delete portion1;
-	delete portion2;
-	delete entropy;
+	delete[] counter;
+	delete[] portion1;
+	delete[] portion2;
+	delete[]  entropy;
 	ins1.close();
 	ins2.close();
 	ous_total_counter.close();
