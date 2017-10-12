@@ -46,7 +46,8 @@ int main(){
 	float tmp;
 	gettimeofday(&start,NULL);
         for(int i=0;i<num_array;i++){
-                tmp = f_array [i];
+		int in = rand()%i;
+                tmp = f_array [in];
         }
         gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
@@ -55,7 +56,9 @@ int main(){
 
 
 
-
+	int index = rand()%num_array;
+	std::cout<<f_array[index]<<" "<<f_array_2[index]<<std::endl;
+	std::cout<<tmp<<std::endl;
 
 	free(f_array);
 	free(f_array_2);
