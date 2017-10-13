@@ -181,19 +181,19 @@ int main(int arg, char** argv){
 		if(ous_total_counter.is_open()){
 			//ous_total_counter<<counter[i]<<endl;
 			ss1 << counter[i]<<endl;
-			ss1.flush();
+		//	ss1.flush();
 	//	counter[i] = counter[i]%3+ portion1[i]/3;
 		}
 		if(ous_first_counter.is_open()){
 		//	ous_first_counter<<portion1[i]<<endl;
 			ss2 << portion1[i]<<endl;
-			ss1.flush();
+		//	ss1.flush();
 			//portion1[i] = log2(portion1[i]);
 		}
 		if(ous_second_counter.is_open()){
 		//	ous_second_counter<<portion2[i]<<endl;
 			ss3 << portion2[i]<<endl;
-			ss1.flush();
+		//	ss1.flush();
 			//portion2[i] = counter[i] / portion1[i];
 		}
 
@@ -206,7 +206,7 @@ int main(int arg, char** argv){
 		//ous<<counter[i]<<endl;
 		//ous<<r<<endl;
 		ss0 << r<<endl;
-		ss1.flush();
+		//ss1.flush();
 		
 	}
 	gettimeofday(&end,NULL);
