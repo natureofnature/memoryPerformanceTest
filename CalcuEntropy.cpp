@@ -179,20 +179,20 @@ int main(int arg, char** argv){
 	for(int i=0;i<gap;i++){
 
 		if(ous_total_counter.is_open()){
-			//ous_total_counter<<counter[i]<<endl;
-			ss1 << counter[i]<<endl;
+			ous_total_counter<<counter[i]<<endl;
+			//ss1 << counter[i]<<endl;
 		//	ss1.flush();
 	//	counter[i] = counter[i]%3+ portion1[i]/3;
 		}
 		if(ous_first_counter.is_open()){
-		//	ous_first_counter<<portion1[i]<<endl;
-			ss2 << portion1[i]<<endl;
+			ous_first_counter<<portion1[i]<<endl;
+		//	ss2 << portion1[i]<<endl;
 		//	ss1.flush();
 			//portion1[i] = log2(portion1[i]);
 		}
 		if(ous_second_counter.is_open()){
-		//	ous_second_counter<<portion2[i]<<endl;
-			ss3 << portion2[i]<<endl;
+			ous_second_counter<<portion2[i]<<endl;
+		//	ss3 << portion2[i]<<endl;
 		//	ss1.flush();
 			//portion2[i] = counter[i] / portion1[i];
 		}
@@ -203,9 +203,8 @@ int main(int arg, char** argv){
 		if((p1!=0)&&(p2!=0)){
 			r= -p1*log2(p1)-p2*log2(p2);
 		}
-		//ous<<counter[i]<<endl;
-		//ous<<r<<endl;
-		ss0 << r<<endl;
+		ous<<r<<endl;
+		//ss0 << r<<endl;
 		//ss1.flush();
 		
 	}
