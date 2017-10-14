@@ -1,6 +1,6 @@
 CXX=g++
 CC=gcc
-CXX_FLAG=-std=c++11 -g 
+CXX_FLAG=-std=c++11  
 
 
 all: int_test
