@@ -176,27 +176,42 @@ int main(int arg, char** argv){
 	
 	std::stringstream ss1,ss2,ss3,ss0;
 
-	for(int i=0;i<gap;i++){
+	for(int i=0;i<gap;i=i+4){
 
 		if(ous_total_counter.is_open()){
 			ous_total_counter<<counter[i]<<endl;
+			ous_total_counter<<counter[i+1]<<endl;
+			ous_total_counter<<counter[i+2]<<endl;
+			ous_total_counter<<counter[i+3]<<endl;
 			//ss1 << counter[i]<<endl;
 		//	ss1.flush();
 	//	counter[i] = counter[i]%3+ portion1[i]/3;
 		}
+	}
+	for(int i=0;i<gap;i=i+4){
 		if(ous_first_counter.is_open()){
 			ous_first_counter<<portion1[i]<<endl;
+			ous_first_counter<<portion1[i+1]<<endl;
+			ous_first_counter<<portion1[i+2]<<endl;
+			ous_first_counter<<portion1[i+3]<<endl;
 		//	ss2 << portion1[i]<<endl;
 		//	ss1.flush();
 			//portion1[i] = log2(portion1[i]);
 		}
+	}
+	for(int i=0;i<gap;i=i+4){
 		if(ous_second_counter.is_open()){
 			ous_second_counter<<portion2[i]<<endl;
+			ous_second_counter<<portion2[i+1]<<endl;
+			ous_second_counter<<portion2[i+2]<<endl;
+			ous_second_counter<<portion2[i+3]<<endl;
 		//	ss3 << portion2[i]<<endl;
 		//	ss1.flush();
 			//portion2[i] = counter[i] / portion1[i];
 		}
 
+	}
+	for(int i=0;i<gap;i=i+4){
 		float p1 = (float)portion1[i]/(portion1[i]+portion2[i]);
 		float p2 = 1.0f -p1;
 		float r =0;
@@ -206,6 +221,27 @@ int main(int arg, char** argv){
 		ous<<r<<endl;
 		//ss0 << r<<endl;
 		//ss1.flush();
+		p1 = (float)portion1[i+1]/(portion1[i+1]+portion2[i+1]);
+		p2 = 1.0f -p1;
+		r =0;
+		if((p1!=0)&&(p2!=0)){
+			r= -p1*log2(p1)-p2*log2(p2);
+		}
+		ous<<r<<endl;
+		p1 = (float)portion1[i+2]/(portion1[i+2]+portion2[i+2]);
+		p2 = 1.0f -p1;
+		r =0;
+		if((p1!=0)&&(p2!=0)){
+			r= -p1*log2(p1)-p2*log2(p2);
+		}
+		ous<<r<<endl;
+		p1 = (float)portion1[i+3]/(portion1[i+3]+portion2[i+3]);
+		p2 = 1.0f -p1;
+		r =0;
+		if((p1!=0)&&(p2!=0)){
+			r= -p1*log2(p1)-p2*log2(p2);
+		}
+		ous<<r<<endl;
 		
 	}
 	gettimeofday(&end,NULL);
