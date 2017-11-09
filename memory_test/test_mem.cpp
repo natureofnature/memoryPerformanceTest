@@ -88,11 +88,11 @@ int main(){
 /*	sequential  memory write    */
 
 	gettimeofday(&start,NULL);
-	for(int i=0;i<num_array;i=i+1){
+	for(int i=0;i<num_array;i=i+4){
 		f_array [i] = (float)i;
-//		f_array [i+1] = (float)(i+1);
-//		f_array [i+2] = (float)(i+2);
-//		f_array [i+3] = (float)(i+3);
+		f_array [i+1] = (float)(i+1);
+		f_array [i+2] = (float)(i+2);
+		f_array [i+3] = (float)(i+3);
 //		f_array [i+4] = (float)(i+4);
 //		f_array [i+5] = (float)(i+5);
 //		f_array [i+6] = (float)(i+6);
@@ -116,7 +116,7 @@ int main(){
 	float tmp;
 	gettimeofday(&start,NULL);
         for(int i=0;i<num_array;i++){
-                tmp = f_array [i];
+                tmp += f_array [i];
         }
         gettimeofday(&end,NULL);
         diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
