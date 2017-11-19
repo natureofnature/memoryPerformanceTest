@@ -36,10 +36,10 @@ do
 	portioncounter2=$FileToDir$dataMixer.portion2
 	./CalcuEntropy $sourcefile1 $sourcefile2 $mixedEntropy 4 4 $totalcounter $portioncounter1 $portioncounter2 
 	echo "drawing..."
- 	#python $pythondraw $mixedEntropy $pictureprefix$i".Entropy.png" "Entropy on SM"$i
-	#python $pythondraw $totalcounter $pictureprefix$i".totalWarps.png" "Number of total warps from two kernels on SM"$i
-	#python $pythondraw $portioncounter1 $pictureprefix$i".Counter1.png" "Kernel1 total warps on SM"$i
-	#python $pythondraw $portioncounter2 $pictureprefix$i".Counter2.png" "Kernel2 total warps on SM"$i
-	#python $python2draw $portioncounter1 $portioncounter2 $pictureprefix$i".Counter1_2.png" "Kernel1 and Kernel2 total warps on SM"$i
+ 	python $pythondraw $mixedEntropy $pictureprefix$i".Entropy.png" "Entropy on SM"$i
+	python $pythondraw $totalcounter $pictureprefix$i".totalWarps.png" "Number of total warps from two kernels on SM"$i
+	python $pythondraw $portioncounter1 $pictureprefix$i".Counter1.png" "Kernel1 total warps on SM"$i
+	python $pythondraw $portioncounter2 $pictureprefix$i".Counter2.png" "Kernel2 total warps on SM"$i
+	python $python2draw $portioncounter1 $portioncounter2 $pictureprefix$i".Counter1_2.png" "Kernel1 and Kernel2 total warps on SM"$i
 	
 done;
