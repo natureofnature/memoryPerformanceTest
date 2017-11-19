@@ -13,7 +13,7 @@ float** createMatrix(int height, int width){
 	for(int i=0;i<height;i++){
 		array[i] = (float*)malloc(sizeof(float)*width);
 		for(int j = 0;j<width;j++){
-			array[i][j] =(float)(rand()%100)/(rand()%1000)+rand()%10;
+			array[i][j] =(float)(rand()%100)/(rand()%1000+1)+rand()%10;
 		}
 	}
 
@@ -36,10 +36,12 @@ int main(int nArg, char** args){
 
 	for(int i = 0;i<L;i++){
 		for(int j=0;j<N;j++){
-				C[i][j] = 0;
+			float sum = 0;
 			for(int k=0;k<M;k++){
-				C[i][j]+=A[i][k]*B[k][j];
+				sum += A[i][k]*B[k][j];
+				sum = sum>1000?sum-1000:sum;
 			}
+			C[i][j]=sum;
 		}
 	}
 	return 0;	
